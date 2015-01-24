@@ -33,7 +33,7 @@ This blog is good: https://www.npmjs.com/package/raspberry
 Next I wanted to install a few python modules. Requests specifically. There are two ways of installing requests. 
 First way is to do a 'pip install requests' in your terminal. In my case pip was not installed. Pip is the python package manager.
 
-sudo apt-get install python-pip will install pip in your Pi.
+'sudo apt-get install python-pip' will install pip in your Pi.
 
 Next 'pip install requests' did it for me.
 

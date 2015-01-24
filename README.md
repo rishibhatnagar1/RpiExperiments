@@ -11,12 +11,12 @@ On Linux/Mac, you will have to log in to RasPi using SSH (its a cool cryptograph
 RaPi website, you will have a username:Pi and Password: raspberry (this could be different.Do look in the documentation of your OS file). Hence, 
 you cannot use:
 
-ssh root@<IP address of Pi>
+ssh root@IPaddressofPi
 
 if you use this, you will be prompted for a password, which you won't know since you are not root.
 You will have to use:
 
-ssh <username>@<IP address of Pi> 
+ssh username@IPaddressofPi
 
 If your username is not Pi, use the username that has been given by the OS in place of Pi.
 
@@ -39,8 +39,8 @@ Next 'pip install requests' did it for me.
 
 Other way of installing any python packages is to build it from source.There is a small hack to get around package manager not available problems. This was the same case with Yun and Intel Edison I am working with. So here is how you do it.
 1.wget https://github.com/kennethreitz/requests/tarball/master  -- This is going to download the .tar.gz file.
-2.tar -xzf <name of the folder>
-3.cd <folder>
+2.tar -xzf nameofthefolder>
+3.cd folder
 4. python setup.py install 
 and Viola, you are done!
 
