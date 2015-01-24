@@ -44,6 +44,4 @@ Other way of installing any python packages is to build it from source.There is 
 4. python setup.py install 
 and Viola, you are done!
 
-#All the programs that use GPIOs will require you to run as sudo.
-
 
