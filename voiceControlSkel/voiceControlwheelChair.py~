@@ -79,5 +79,5 @@ if val != None:
 	val = getSerialCommand(val)
 	print val
 	setMotionStatus(val)
-	 
+	#GPIO.flush() 
 
