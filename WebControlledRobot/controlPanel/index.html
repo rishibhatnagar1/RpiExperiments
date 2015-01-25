@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            background: url(img/background.jpg) no-repeat;
+            background-size: 320px 568px;
+            height: 568px;
+            width: 320px;
+        }
+        #left {
+            margin-top: 20px;
+            float: left;
+        }
+        #right {
+            margin-top: 20px;
+            float: right;
+        }
+        button {
+            background-color: transparent;
+            /*color: #79BAEC;*/
+            border-radius: 10px;
+            font-size: 20px;
+            border-color: red;
+        }
+        h1 {
+            text-align: left;
+        }
+    </style>
+    <title>Control - Panel</title>
+</head>
+
+<body>
+
+    <div id="forward">
+        <button>Forward</button>
+    </div>
+    <div id="back">
+        <button>Backward</button>
+    </div>
+    <div id="left">
+        <button>Left</button>
+    </div>
+    <div id="right">
+        <button>Right</button>
+    </div>
+    <div id="stop">
+        <button>Stop</button>
+    </div>
+
+
+</body>
+
+
+<script type="text/javascript">
+    /*    function onDeviceReady() {
+console.log("Device is ready");
+}*/
+    
+    function sendToServer(val) {
+        alert(val);
+        var res = {};
+        res.value = val;
+        $.ajax({
+            url: "",
+            type: 'POST',
+            data: res,
+            timeout: 10000,
+            success: function (s) {
+                alert("Succes " + s);
+            },
+            error: function (e) {
+                alert("error " + JSON.stringify(e));
+            }
+        });
+
+    }
+
+    function connectSuccess(c) {
+        alert(c);
+    }
+
+    function connectError(e) {
+        alert(e);
+    }
+
+    //document.addEventListener("deviceready", onDeviceReady, true);
+    //document.addEventListener("click", recognizeSpeech, true);
+/*$('.add').click(function(){
+
+$('button').mouseover(function(){
+$(this).css("background-color","#79BAEC");
+});
+$('button').mouseout(function(){
+$(this).css("background-color","transparent");
+});*/
+    $('#forward').click(function () {
+        //alert('forward pressed');
+        sendToServer("f");
+    });
+    $('#back').click(function () {
+        //alert('back pressed');
+        sendToServer("b");
+    });
+    $('#left').click(function () {
+        //alert('left');
+        sendToServer("l");
+    });
+    $('#right').click(function () {
+        //alert('right pressed');
+        sendToServer("r");
+    });
+    $('#stop').click(function () {
+        //alert('stop pressed');
+        sendToServer("s");
+    });
+</script>
+
+</html>
