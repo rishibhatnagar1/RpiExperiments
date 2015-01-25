@@ -70,7 +70,7 @@ def setMotionStatus(inpVal):
 		moveRight()
 	else:
 		stop()
-		
+		GPIO.flush() #Keep the GPIOs clean
 
 '''Run this infinitely'''
 while True:

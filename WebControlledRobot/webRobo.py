@@ -23,15 +23,15 @@ def checkCommandExists():
 		return curValue
 
 def getSerialCommand(cmd):
-	if "go" in cmd and "forward" in cmd:
+	if "f" in cmd :
 		return "f"
-	elif "go" in cmd and "back" in cmd:
+	elif "b" in cmd:
 		return "b"
-	elif "go" in cmd and "right" in cmd:
+	elif "r" in cmd:
 		return "r"
-	elif "go" in cmd and "left" in cmd:
+	elif "l" in cmd:
 		return "l"
-	elif "stop" in cmd or "wait" in cmd or "halt" in cmd:
+	elif "s" in cmd :
 		return "s"
 '''This part here is to work with your application, this case it is a wheelchair '''
 def moveForward():
@@ -70,7 +70,7 @@ def setMotionStatus(inpVal):
 		moveRight()
 	else:
 		stop()
-		
+		GPIO.flush() #Keep the GPIOs clean
 
 '''Run this infinitely'''
 while True:
