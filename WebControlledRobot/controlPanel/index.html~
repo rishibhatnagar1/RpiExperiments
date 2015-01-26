@@ -61,15 +61,15 @@
 
 <script type="text/javascript">
     /*    function onDeviceReady() {
-console.log("Device is ready"); // This function will be used only on the device.
+console.log("Device is ready");
 }*/
 
-    function sendToServer(val) { 
-        alert(val); //To check the value
+    function sendToServer(val) {
+        alert(val);
         var res = {};
         res.value = val;
-        $.ajax({ //async. call to server , post things effectively
-            url: "",
+        $.ajax({
+            url: "https://morning-brushlands-7219.herokuapp.com/",
             type: 'POST',
             data: res,
             timeout: 10000,
@@ -96,7 +96,7 @@ console.log("Device is ready"); // This function will be used only on the device
 
     $('#forward').click(function () {
         //alert('forward pressed');
-        sendToServer("f"); //Checked this part, it works.
+        sendToServer("f");
     });
     $('#back').click(function () {
         //alert('back pressed');
@@ -115,7 +115,7 @@ console.log("Device is ready"); // This function will be used only on the device
         sendToServer("s");
     });
 
-    /*$('.add').click(function(){ // Can use something like this for additional styling
+    /*$('.add').click(function(){
 
 $('button').mouseover(function(){
 $(this).css("background-color","#79BAEC");
