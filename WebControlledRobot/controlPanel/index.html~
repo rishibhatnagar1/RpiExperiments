@@ -69,7 +69,7 @@ console.log("Device is ready"); // This function will be used only on the device
         var res = {};
         res.value = val;
         $.ajax({ //async. call to server , post things effectively
-            url: "https://morning-brushlands-7219.herokuapp.com/",
+            url: "",
             type: 'POST',
             data: res,
             timeout: 10000,
