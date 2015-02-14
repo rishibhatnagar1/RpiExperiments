@@ -1,0 +1,6 @@
+The program is rather simple to work with. 
+It has the following important parts:
+1. Voice to text conversation - On phone
+2. Sending the values to the server (post requests)- On phone
+3. Reading values from the server - Using python script running on the pi 
+4. Controlling GPIOs on the basis of the voice input.- Python script running on the pi
