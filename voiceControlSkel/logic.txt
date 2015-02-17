@@ -4,3 +4,59 @@ It has the following important parts:
 2. Sending the values to the server (post requests)- On phone
 3. Reading values from the server - Using python script running on the pi 
 4. Controlling GPIOs on the basis of the voice input.- Python script running on the pi
+
+
+
+We start the python code by including 3 major modules. They are :
+Rpi.GPIO (The raspberry pi gpio module)
+time
+and requests. This is going to be used to post and get requests from server side. To install it :
+$ pip install requests
+
+
+To start with , we will first initialize the GPIOs 
+
+GPIO.setmode(GPIO.BCM) #This is to name GPIOS
+GPIO.setwarning(False) 
+p1 = GPIO17
+p2 = GPIO27
+#Initialize the pins to their INPUT/OUPUT nature
+#GPIO.setup(pinNumber,GPIO.IN/OUT)
+GPIO.setup(p1,GPIO.OUT) 
+GPIO.setup(p2,GPIO.OUT)
+
+Once the GPIOs are initialized , we are going to proceed on the code that connects to the cloud :
+
+link = ""  #The link here could be localhost or the link to the server
+def checkCommandExists():
+	r = requests.get(link)  #this part fetches the commands from the cloud.
+ 	curValue = r.text       #This part converts the the input value into text 
+	if curValue == "none": 
+		return None
+	else:
+		return curValue
+
+Now we define the function that is going to take care of the movement of the robot/wheel chair on the input command
+
+def getSerialCommand(cmd):
+	if "go" in cmd and "forward" in cmd:
+		return "f"
+	elif "go" in cmd and "back" in cmd:
+		return "b"
+	elif "go" in cmd and "right" in cmd:
+		return "r"
+	elif "go" in cmd and "left" in cmd:
+		return "l"
+	elif "stop" in cmd or "wait" in cmd or "halt" in cmd:
+		return "s"
+
+The above code is rather self-explainatory
+
+
+The next step is to check the server continuously for values that have been posted there.
+
+Learn more on requests here :
+
+http://www.pythonforbeginners.com/requests/using-requests-in-python
+
+http://docs.python-requests.org/en/latest/user/quickstart/
