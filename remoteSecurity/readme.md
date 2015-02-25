@@ -7,3 +7,5 @@ http://through-the-interface.typepad.com/through_the_interface/2012/09/creating-
 https://learn.adafruit.com/wireless-security-camera-arduino-yun/setting-up-your-arduino-yun
 
 Both of them have a few interesting things in common wrt concept, will keep this document updated with the learning resources/code/github profiles I come across for making this project. I am giving myself 2 weeks to get this done, lets see how this goes.
+
+Update 25/2/2015, I ended up building it all right from scratch. Updated all the folders, yet to update GPIO functionalities, but otherwise the code is complete.
