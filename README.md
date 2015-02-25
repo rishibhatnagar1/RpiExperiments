@@ -44,6 +44,18 @@ Other way of installing any python packages is to build it from source.There is 
 4. python setup.py install 
 and Viola, you are done!
 
+######### Connect Rpi to your laptop/Mac directly with Ethernet Cable and login using SSH 
+
+For this particular case, when you want to log in to Rpi through SSH from your system itslef, without connecting Rpi to the modem, do the following:
+1. Without connecting your Rpi, go to network settings and find out the ethernet connection DHCP address, in my case it was of the form 169.145.X.230. Now plug in the Rpi bootable SD card into the SD card slot.
+You will find a file there called cmdline.txt  . Open the file and in the same line add the "ip: 169.145.X.210" , remember, you have to add it in the same line without the quotes. X has to be in the same subnet as the network setting you saw before. The 210 can be any number between 0 to 255. Remember this ip address because you will be using this to login to the pi now.
+2. login to pi:
+	ssh pi@169.145.X.210 
+	--You will see a question on RSA, press 'yes'
+	password : -- entry raspberry and you should be in, for furthur details on the same you can look at this blog: https://pihw.wordpress.com/guides/direct-network-connection/
+	
+
+
 #All the programs that use GPIOs will require you to run as sudo.
 
 
