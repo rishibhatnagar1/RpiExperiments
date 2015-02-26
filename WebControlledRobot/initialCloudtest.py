@@ -3,7 +3,7 @@ import time
 import requests
 
 '''This part is working with  the cloud'''
-link = ""
+link = "https://morning-brushlands-7219.herokuapp.com/"
 def checkCommandExists():
 	r = requests.get(link)
 	curValue = r.text
