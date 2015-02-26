@@ -1,128 +1,57 @@
 <!DOCTYPE html>
+<!--Learning: If I keep the script tag at the end of the documnet, it is equivalent to calling document.ready fucntion in jquery, only when the document is all called, the script is loaded. -->
+
 
 <html>
 
 <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
-    <style>
-        body {
-            background: url(img/background.jpg) no-repeat;
-            background-size: 320px 568px;
-            height: 568px;
-            width: 320px;
-        }
-        #left {
-            margin-top: 20px;
-            float: left;
-        }
-        #right {
-            margin-top: 20px;
-            float: right;
-        }
-        button {
-            background-color: transparent;
-            /*color: #79BAEC;*/
-            border-radius: 10px;
-            font-size: 20px;
-            border-color: red;
-        }
-        h1 {
-            text-align: left;
-        }
-    </style>
-    <title>Control - Panel</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <!--    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>
+        <h1>Control Panel
+    </h1>
+    </title>
 </head>
 
 <body>
 
-    <div id="forward">
-        <button>Forward</button>
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-2">
+                Control Panel
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
     </div>
-    <div id="back">
-        <button>Backward</button>
+    <!-- Call the image using javascript here -->
+    <div class="container-fluid" id="NewThings">
+        <div class="row">
+            <div class="col-sm-4"><button id="left">Left</button></div>
+            <div class="col-sm-4">
+                 <button id= "stop">Stop</button>
+            </div>
+            <div class="col-sm-4"><button id ="right">Right</button></div>
+        </div>
     </div>
-    <div id="left">
-        <button>Left</button>
-    </div>
-    <div id="right">
-        <button>Right</button>
-    </div>
-    <div id="stop">
-        <button>Stop</button>
-    </div>
+	        <div class="row"><div class ="col-sm-4"></div>
+            <div class="col-sm-4"><button id="back">back</button></div>
+<div class ="col-sm-4"></div></div>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 
+    <!-- Include the jQuery library -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 
+    <!-- Include the jQuery Mobile library -->
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!--<script type="text/javascript" src="cordova.js"></script> -->
+    <script type="text/javascript" src="js/index.js"></script>
 </body>
-
-
-<script type="text/javascript">
-    /*    function onDeviceReady() {
-console.log("Device is ready"); // This function will be used only on the device.
-}*/
-
-    function sendToServer(val) { 
-        alert(val); //To check the value
-        var res = {};
-        res.value = val;
-        $.ajax({ //async. call to server , post things effectively
-            url: "https://morning-brushlands-7219.herokuapp.com/",
-            type: 'POST',
-            data: res,
-            timeout: 10000,
-            success: function (s) {
-                alert("Succes " + s);
-            },
-            error: function (e) {
-                alert("error " + JSON.stringify(e));
-            }
-        });
-
-    }
-
-    function connectSuccess(c) {
-        alert(c);
-    }
-
-    function connectError(e) {
-        alert(e);
-    }
-
-    //document.addEventListener("deviceready", onDeviceReady, true);
-    //document.addEventListener("click", recognizeSpeech, true);
-
-    $('#forward').click(function () {
-        //alert('forward pressed');
-        sendToServer("f"); //Checked this part, it works.
-    });
-    $('#back').click(function () {
-        //alert('back pressed');
-        sendToServer("b");
-    });
-    $('#left').click(function () {
-        //alert('left');
-        sendToServer("l");
-    });
-    $('#right').click(function () {
-        //alert('right pressed');
-        sendToServer("r");
-    });
-    $('#stop').click(function () {
-        //alert('stop pressed');
-        sendToServer("s");
-    });
-
-    /*$('.add').click(function(){ // Can use something like this for additional styling
-
-$('button').mouseover(function(){
-$(this).css("background-color","#79BAEC");
-});
-$('button').mouseout(function(){
-$(this).css("background-color","transparent");
-});*/
-</script>
 
 </html>
