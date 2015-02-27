@@ -13,7 +13,7 @@ GPIO.setup(p1,GPIO.OUT)
 GPIO.setup(p2,GPIO.OUT)
 
 '''This part is working with  the cloud'''
-link = ""
+link = "https://morning-brushlands-7219.herokuapp.com/"
 def checkCommandExists():
 	r = requests.get(link)
 	curValue = r.text
