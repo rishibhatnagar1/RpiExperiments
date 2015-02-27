@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--Learning: If I keep the script tag at the end of the documnet, it is equivalent to calling document.ready fucntion in jquery, only when the document is all called, the script is loaded. -->
+
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <title>
+        Control Panel
+    </title>
+</head>
+
+<body>
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-2">
+                Control Panel
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+    </div>
+    <!-- Call the image using javascript here -->
+    <div class="container-fluid" id="NewThings">
+        <div class="row">
+            <div class="col-sm-4">
+                <button id="left">Left</button>
+            </div>
+            <div class="col-sm-4">
+                <button id="stop">Stop</button>
+            </div>
+            <div class="col-sm-4">
+                <button id="right">Right</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <button id="back">back</button>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+    <script type="text/javascript">
+        alert("Im here");
+        $(document).ready(function () {
+            $('#left').click(function () {
+                //alert("l");
+                sendToServer("l");
+            })
+            $('#right').click(function () {
+                //alert("r");
+                sendToServer("r");
+            })
+            $('#stop').click(function () {
+                //alert("s");
+                sendToServer("s");
+            })
+            $('#back').click(function () {
+                //alert("b");
+                sendToServer("b");
+            })
+            
+        function sendToServer(val) {
+            alert(val);
+            var res = {};
+             res.value = val;
+             $.ajax({
+                    url:"https://morning-brushlands-7219.herokuapp.com/",
+                    type:'POST',
+                    data:res,
+                    timeout:10000,
+                    success:function(s){
+                        alert("Succes " + s);},
+                    error:function(e){
+                        alert("error " + JSON.stringify(e));
+                    }
+                });
+            };
+                   
+        });
+    </script>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- Include jQuery Mobile stylesheets -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+    <!-- Include the jQuery library -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <!-- Include the jQuery Mobile library -->
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!--<script type="text/javascript" src="cordova.js"></script> -->
+
+</body>
+
+</html>
