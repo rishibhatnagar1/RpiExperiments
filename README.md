@@ -56,6 +56,8 @@ You will find a file there called cmdline.txt  . Open the file and in the same l
 	
 
 
-#All the programs that use GPIOs will require you to run as sudo.
+#All the programs that use GPIOs will require you to run as sudo
+
+#Codes tested with Raspberry Pi B and B+ 
 
 

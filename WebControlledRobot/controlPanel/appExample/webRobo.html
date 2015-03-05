@@ -24,6 +24,13 @@
     </div>
     <!-- Call the image using javascript here -->
     <div class="container-fluid" id="NewThings">
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <button id="forward">Forward</button>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
         <div class="row">
             <div class="col-sm-4">
                 <button id="left">Left</button>
@@ -62,6 +69,10 @@
                 //alert("b");
                 sendToServer("b");
             })
+            $('#forward').click(function(){
+            	//alert("f");
+            	sendToServer("f");
+            });
             
         function sendToServer(val) {
             alert(val);
