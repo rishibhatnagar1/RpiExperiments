@@ -19,6 +19,16 @@ var options = {
     config: opt
 }
 
+/*Cross origin resource sharing*/
+var header ={
+"Access-Control-Allow-Origin":"http://localhost:4000", //It can be restricted to any other domains by replacing the link and open for all domains, using *
+"Access-Control-Allow-Methods":"GET,PUT,POST,DELETE",
+"Access-Control-Allow-Headers":"Content-Type"
+};
+
+rest.setHeaders(header);
+
+
 rest.multipost('/pagemulti', function (err, data) { //File will be posted at servername/pagemulti 
     if (!err) {
         console.log(data); //You will be able to see whether the data is posted correctly.
