@@ -35,5 +35,8 @@ GPIO.setup(pin,GPIO.IN) #Define input
 time.sleep(5)
 
 while True:
+    #print (GPIO.input(4))
     if (GPIO.input(4)):
-        captureImage("newName","image_stream", 0.5)
+        captureImage("newName","intruder", 0.5)
+
+'''To view the image capture go the following link: https://sheltered-inlet-1735.herokuapp.com/images?value=intruder.jpg '''
