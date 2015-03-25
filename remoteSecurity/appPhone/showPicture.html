@@ -15,10 +15,6 @@
         <h1>
     </h1>
     </title>
-    <script type="text/javascript">
-    
-    
-    </script>
 </head>
 
 <body>
@@ -44,9 +40,9 @@
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <img src = "https://sheltered-inlet-1735.herokuapp.com/images?value=intruder.jpg">
-                <button class ="btn-danger" id= "control1">Open</button>
-                <button class ="btn-danger" id= "control2">Don't Open</button>
+                <img src="https://sheltered-inlet-1735.herokuapp.com/images?value=intruder.jpg">
+                <button class="btn-danger" id="control1">Open</button>
+                <button class="btn-danger" id="control2">Don't Open</button>
             </div>
             <div class="col-sm-4"></div>
         </div>
@@ -61,7 +57,49 @@
     <!-- Include the jQuery Mobile library -->
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <!--<script type="text/javascript" src="cordova.js"></script> -->
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        /* Add the code to print Y and N on the press of the button */
+        $(document).ready(function () {
+            $('#control1').click(function () {
+                //alert("You are going to open the door");
+                sendToServer("Y");
+                console.log("Y");
+            });
+            $('control2').click(function () {
+                //alert("You said no");
+                sendToServer("N");
+                conole.log("N done");
+            });
+
+        });
+
+        function sendToServer(val) {
+            alert(val);
+
+            var res = {};
+            res.value = val;
+            $.ajax({
+                url: "https://sheltered-inlet-1735.herokuapp.com/command",
+                type: 'POST',
+                data: res,
+                timeout: 10000,
+                success: function (s) {
+                    alert("Succes " + s);
+                },
+                error: function (e) {
+                    alert("error " + JSON.stringify(e));
+                }
+            });
+        }
+
+        function connectSuccess(c) {
+            alert(c);
+        }
+
+        function connectError(e) {
+            alert(e);
+        }
+    </script>
 </body>
 
 </html>
